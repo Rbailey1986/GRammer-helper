@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  :root { --bg: #fff; --fg: #1f2328; --muted: #59636e; --line: #eef0f2; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #22272e; --fg: #e6edf3; --muted: #9da7b3; --line: #30363d; }
+  }
+  body { margin: 0; width: 280px; background: var(--bg); color: var(--fg);
+         font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  header { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+  header img { width: 24px; height: 24px; }
+  header b { font-size: 15px; }
+  .row { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; }
+  .row + .row { border-top: 1px solid var(--line); }
+  .sub { color: var(--muted); font-size: 12px; }
+  .switch { position: relative; width: 36px; height: 20px; flex: none; }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .switch span { position: absolute; inset: 0; background: #c4c9cf; border-radius: 10px; cursor: pointer; transition: .15s; }
+  .switch span::before { content: ""; position: absolute; width: 16px; height: 16px; left: 2px; top: 2px; background: #fff; border-radius: 8px; transition: .15s; }
+  .switch input:checked + span { background: #16a34a; }
+  .switch input:checked + span::before { transform: translateX(16px); }
+  footer { padding: 10px 16px 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+  kbd { font: 11px ui-monospace, Menlo, Consolas, monospace; border: 1px solid var(--line); border-radius: 4px; padding: 1px 4px; }
+  .legend { display: flex; gap: 12px; margin-bottom: 6px; }
+  .legend i { display: inline-block; width: 8px; height: 8px; border-radius: 4px; margin-right: 4px; }
+</style>
+</head>
+<body>
+  <header><img src="icons/icon48.png" alt=""><b>Grammar Helper</b></header>
+  <div class="row">
+    <div>Check as I type<div class="sub">Everywhere in Chrome</div></div>
+    <label class="switch"><input id="enabled" type="checkbox"><span></span></label>
+  </div>
+  <div class="row">
+    <div>This site<div class="sub" id="site">—</div></div>
+    <label class="switch"><input id="siteOn" type="checkbox"><span></span></label>
+  </div>
+  <footer>
+    <div class="legend">
+      <span><i style="background:#e5484d"></i>Spelling</span>
+      <span><i style="background:#3b82f6"></i>Grammar</span>
+      <span><i style="background:#a855f7"></i>Style</span>
+    </div>
+    <div><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> next mistake &nbsp; <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> fix all</div>
+    <div style="margin-top:4px"><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> rewrite sentence (desktop app must be running)</div>
+    <div style="margin-top:6px">Hover an underline for suggestions · select text to rewrite it · click the badge for all suggestions.</div>
+    <div style="margin-top:6px">Runs entirely on your computer. Nothing you type is sent anywhere.</div>
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>

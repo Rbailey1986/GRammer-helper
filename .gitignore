@@ -1,0 +1,14 @@
+node_modules/
+dist/
+*.exe
+*.dmg
+*.log
+.DS_Store
+*.swp
+*.swo
+*~
+.env
+.env.local
+.vscode/
+.idea/
+*.orig

@@ -1,0 +1,62 @@
+{
+  "name": "grammar-helper",
+  "productName": "Grammar Helper",
+  "version": "1.0.0",
+  "description": "Offline grammar and spelling checker",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis --x64",
+    "dist:mac": "electron-builder --mac dmg --x64"
+  },
+  "dependencies": {
+    "harper.js": "2.13.0"
+  },
+  "devDependencies": {
+    "electron": "44.5.1",
+    "electron-builder": "26.17.0",
+    "@huggingface/transformers": "4.3.1"
+  },
+  "build": {
+    "appId": "com.grammarhelper.app",
+    "productName": "Grammar Helper",
+    "files": [
+      "main.js",
+      "preload.cjs",
+      "lib/**",
+      "renderer/**",
+      "rewriter/**",
+      "vendor/**",
+      "assets/**",
+      "build/icon.png"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "win": {
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "mac": {
+      "icon": "build/icon.png",
+      "category": "public.app-category.productivity",
+      "extendInfo": {
+        "NSAppleEventsUsageDescription": "Grammar Helper copies the text you select and pastes the corrected version back."
+      }
+    },
+    "extraResources": [
+      {
+        "from": "models",
+        "to": "models",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
+  }
+}

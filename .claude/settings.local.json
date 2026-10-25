@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__tracker__tracker_rules",
+      "mcp__tracker__tracker_project",
+      "mcp__tracker__tracker_update",
+      "PowerShell([guid]::NewGuid\\(\\).ToString\\(\\) -replace '-')",
+      "PowerShell(@\\(1..4\\) | ForEach-Object { \\([guid]::NewGuid\\(\\).ToString\\(\\) -replace '-'\\) })",
+      "PowerShell(@\\(1..10\\) | ForEach-Object { \\([guid]::NewGuid\\(\\).ToString\\(\\) -replace '-'\\) })",
+      "Bash(git init *)",
+      "Bash(git config *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}

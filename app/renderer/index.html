@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'">
+<title>Grammar Helper</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="brand"><img src="../build/icon.png" alt=""><span>Grammar Helper</span></div>
+    <div class="stats" id="stats"></div>
+    <div class="actions">
+      <button id="paste" title="Paste from clipboard">Paste</button>
+      <button id="clear" title="Clear text">Clear</button>
+      <button id="copy" title="Copy text">Copy</button>
+      <button id="fixAll" class="primary" disabled>Fix all</button>
+      <button id="replace" class="primary" hidden title="Paste the corrected text back where you copied it from">Replace in app</button>
+    </div>
+  </header>
+
+  <div class="notice" id="notice" hidden></div>
+
+  <main>
+    <section class="editor-wrap">
+      <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+      <textarea id="editor" spellcheck="false" placeholder="Type or paste your text here…"></textarea>
+    </section>
+    <aside class="side">
+      <div class="rewrite">
+        <div class="rw-head">
+          <span>Rewrite sentence</span>
+          <span class="rw-status" id="rwStatus"></span>
+        </div>
+        <div class="rw-modes" id="rwModes"></div>
+        <div class="rw-hint">Click in a sentence (or select text), then pick a style.</div>
+        <div class="rw-result" id="rwResult" hidden></div>
+      </div>
+      <div class="side-head" id="sideHead">Suggestions</div>
+      <div class="list" id="list"></div>
+    </aside>
+  </main>
+
+  <footer class="foot" id="foot"></footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

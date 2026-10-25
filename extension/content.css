@@ -1,0 +1,16 @@
+/* Underlines for contenteditable fields, drawn with the CSS Custom Highlight API. */
+::highlight(gh-spelling) {
+  text-decoration: underline 2px #e5484d;
+  text-underline-offset: 3px;
+}
+::highlight(gh-grammar) {
+  text-decoration: underline 2px #3b82f6;
+  text-underline-offset: 3px;
+}
+::highlight(gh-style) {
+  text-decoration: underline 2px #a855f7;
+  text-underline-offset: 3px;
+}
+::highlight(gh-active) {
+  background-color: rgba(120, 120, 120, 0.2);
+}
